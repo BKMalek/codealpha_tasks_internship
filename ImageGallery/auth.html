@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | VisualVibe</title>
+    <link rel="stylesheet" href="auth-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <div class="floating-shape shape-4"></div>
+    </div>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+      <!-- Auth Header -->
+      <div class="auth-header">
+        <div class="auth-logo">
+          <div class="logo-icon">
+            <div class="vibe-wave wave-1"></div>
+            <div class="vibe-wave wave-2"></div>
+            <div class="vibe-wave wave-3"></div>
+          </div>
+          <h1>VisualVibe</h1>
+        </div>
+        <h2 class="auth-title">Welcome to the Creative Universe</h2>
+        <p class="auth-subtitle">
+          Join thousands of creators sharing their visual vibes and discovering
+          amazing content every day.
+        </p>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="signin">Sign In</button>
+        <button class="auth-tab" data-tab="signup">Join Vibe</button>
+      </div>
+
+      <!-- Auth Content -->
+      <div class="auth-content">
+        <!-- Sign In Form -->
+        <form class="auth-form active" id="signin-form">
+          <div class="form-group">
+            <label for="signin-email">Email Address</label>
+            <div class="input-wrapper">
+              <input
+                type="email"
+                id="signin-email"
+                class="form-input"
+                placeholder="Enter your email"
+                required
+              />
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">Please enter a valid email address</div>
+          </div>
+
+          <div class="form-group">
+            <label for="signin-password">Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="signin-password"
+                class="form-input"
+                placeholder="Enter your password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="signin-password"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">
+              Password must be at least 8 characters
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" id="remember-signin" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-btn">
+            <span class="btn-text">Feel the Vibe</span>
+            <div class="btn-loader">
+              <div class="loader-circle"></div>
+            </div>
+          </button>
+
+          <div class="social-divider">
+            <span>or continue with</span>
+          </div>
+
+          <div class="social-auth">
+            <button type="button" class="social-btn google">
+              <i class="fab fa-google social-icon"></i>
+              <span>Google</span>
+            </button>
+            <button type="button" class="social-btn facebook">
+              <i class="fab fa-facebook-f social-icon"></i>
+              <span>Facebook</span>
+            </button>
+            <button type="button" class="social-btn twitter">
+              <i class="fab fa-twitter social-icon"></i>
+              <span>Twitter</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form class="auth-form" id="signup-form">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="signup-name"
+                class="form-input"
+                placeholder="Enter your full name"
+                required
+              />
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">Please enter your full name</div>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <div class="input-wrapper">
+              <input
+                type="email"
+                id="signup-email"
+                class="form-input"
+                placeholder="Enter your email"
+                required
+              />
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">Please enter a valid email address</div>
+          </div>
+
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="signup-password"
+                class="form-input"
+                placeholder="Create a password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="signup-password"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">
+              Password must be at least 8 characters with numbers and letters
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="confirm-password"
+                class="form-input"
+                placeholder="Confirm your password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="confirm-password"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+              <i class="fas fa-check validation-icon"></i>
+            </div>
+            <div class="error-message">Passwords do not match</div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" id="terms-signup" required />
+              <span
+                >I agree to the <a href="#">Terms</a> and
+                <a href="#">Privacy Policy</a></span
+              >
+            </label>
+          </div>
+
+          <button type="submit" class="auth-btn">
+            <span class="btn-text">Create Your Vibe Account</span>
+            <div class="btn-loader">
+              <div class="loader-circle"></div>
+            </div>
+          </button>
+
+          <div class="social-divider">
+            <span>or continue with</span>
+          </div>
+
+          <div class="social-auth">
+            <button type="button" class="social-btn google">
+              <i class="fab fa-google social-icon"></i>
+              <span>Google</span>
+            </button>
+            <button type="button" class="social-btn facebook">
+              <i class="fab fa-facebook-f social-icon"></i>
+              <span>Facebook</span>
+            </button>
+            <button type="button" class="social-btn twitter">
+              <i class="fab fa-twitter social-icon"></i>
+              <span>Twitter</span>
+            </button>
+          </div>
+
+          <div class="auth-terms">
+            By creating an account, you agree to our
+            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            We're committed to protecting your creative vibes and personal
+            information.
+          </div>
+        </form>
+
+        <!-- Success Message -->
+        <div class="auth-success" id="auth-success">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Welcome to VisualVibe!</h3>
+          <p>
+            Your account has been created successfully. Get ready to share your
+            creative vibes with the world!
+          </p>
+          <div class="success-actions">
+            <a href="dashboard.html" class="auth-btn">Go to Dashboard</a>
+            <a href="upload.html" class="btn-outline">Upload Your First Vibe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home Link -->
+    <a href="index.html" class="back-home">
+      <i class="fas fa-arrow-left"></i>
+      Back to Home
+    </a>
+
+    <script src="auth-script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProCalc - Professional Calculator</title>
+    <meta
+      name="description"
+      content="Professional calculator with advanced features, cloud sync, and collaboration tools."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Debug Script -->
+    <script>
+      console.log("🚀 HTML loaded, DOM state:", document.readyState);
+
+      // Debug function to check elements
+      window.debugElements = function () {
+        console.log("=== ELEMENT DEBUG ===");
+        console.log(
+          "Loading screen:",
+          document.getElementById("loadingScreen")
+        );
+        console.log("App container:", document.getElementById("appContainer"));
+        console.log(
+          "Toast container:",
+          document.getElementById("toastContainer")
+        );
+        console.log(
+          "Nav buttons:",
+          document.querySelectorAll(".nav-btn").length
+        );
+        console.log("Views:", document.querySelectorAll(".view").length);
+        console.log("===================");
+      };
+
+      // Auto-debug after a short delay
+      setTimeout(() => {
+        console.log("🔍 Auto-debugging elements...");
+        if (window.debugElements) window.debugElements();
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-logo">
+          <span class="logo-icon">🧮</span>
+          <h1>ProCalc</h1>
+        </div>
+        <div class="loading-spinner"></div>
+        <p>Loading your professional calculator...</p>
+        <p style="font-size: 0.8rem; color: #666; margin-top: 10px">
+          If this takes too long, check the browser console for errors
+        </p>
+      </div>
+    </div>
+
+    <!-- Authentication Modal -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content auth-modal">
+        <div class="modal-header">
+          <h2 id="authTitle">Welcome to ProCalc</h2>
+          <button class="modal-close" onclick="closeAuthModal()">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            <p class="auth-switch">
+              Don't have an account?
+              <a href="#" onclick="switchToRegister()">Sign up</a>
+            </p>
+          </form>
+
+          <!-- Register Form -->
+          <form id="registerForm" class="auth-form">
+            <div class="form-group">
+              <label for="registerUsername">Username</label>
+              <input type="text" id="registerUsername" required />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" required />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" required />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Create Account
+            </button>
+            <p class="auth-switch">
+              Already have an account?
+              <a href="#" onclick="switchToLogin()">Sign in</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="app-container" id="appContainer" style="display: none">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <span class="logo-icon">🧮</span>
+            <span class="logo-text">ProCalc</span>
+          </div>
+          <nav class="main-nav">
+            <button class="nav-btn active" data-view="calculator">
+              Calculator
+            </button>
+            <button class="nav-btn" data-view="history">History</button>
+            <button class="nav-btn" data-view="notes">Notes</button>
+            <button class="nav-btn" data-view="statistics">Statistics</button>
+          </nav>
+        </div>
+        <div class="header-right">
+          <button class="icon-btn" id="themeToggle" title="Toggle theme">
+            🌙
+          </button>
+          <button class="icon-btn" id="syncBtn" title="Sync data">🔄</button>
+          <div class="user-menu">
+            <button class="user-btn" id="userBtn">
+              <span class="user-avatar">👤</span>
+              <span class="user-name" id="userName">User</span>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="#" onclick="showProfile()">Profile</a>
+              <a href="#" onclick="showSettings()">Settings</a>
+              <hr />
+              <a href="#" onclick="logout()">Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Calculator View -->
+        <div class="view active" id="calculatorView">
+          <div class="calculator-container">
+            <div class="calculator-modes">
+              <button class="mode-btn active" data-mode="scientific">
+                Scientific
+              </button>
+              <button class="mode-btn" data-mode="graphing">Graphing</button>
+              <button class="mode-btn" data-mode="statistics">
+                Statistics
+              </button>
+              <button class="mode-btn" data-mode="programming">
+                Programming
+              </button>
+            </div>
+
+            <div class="calculator-display">
+              <div class="display-history" id="displayHistory"></div>
+              <div class="display-expression" id="displayExpression">0</div>
+              <div class="display-result" id="displayResult"></div>
+            </div>
+
+            <div class="calculator-controls">
+              <button class="control-btn" onclick="showSteps()">
+                📝 Steps
+              </button>
+              <button class="control-btn" onclick="saveCalculation()">
+                💾 Save
+              </button>
+              <button class="control-btn" onclick="shareCalculation()">
+                📤 Share
+              </button>
+              <button class="control-btn" onclick="clearAll()">🗑️ Clear</button>
+            </div>
+
+            <!-- Scientific Calculator -->
+            <div
+              class="calculator-grid scientific-grid active"
+              id="scientificGrid"
+            >
+              <!-- Advanced Functions -->
+              <button class="calc-btn function" onclick="addFunction('sin(')">
+                sin
+              </button>
+              <button class="calc-btn function" onclick="addFunction('cos(')">
+                cos
+              </button>
+              <button class="calc-btn function" onclick="addFunction('tan(')">
+                tan
+              </button>
+              <button class="calc-btn function" onclick="addFunction('log(')">
+                log
+              </button>
+              <button class="calc-btn function" onclick="addFunction('ln(')">
+                ln
+              </button>
+              <button class="calc-btn function" onclick="addOperator('^')">
+                x^y
+              </button>
+
+              <!-- Inverse Functions -->
+              <button class="calc-btn function" onclick="addFunction('asin(')">
+                sin⁻¹
+              </button>
+              <button class="calc-btn function" onclick="addFunction('acos(')">
+                cos⁻¹
+              </button>
+              <button class="calc-btn function" onclick="addFunction('atan(')">
+                tan⁻¹
+              </button>
+              <button class="calc-btn function" onclick="addFunction('sqrt(')">
+                √
+              </button>
+              <button class="calc-btn function" onclick="addFunction('cbrt(')">
+                ∛
+              </button>
+              <button class="calc-btn function" onclick="addFunction('abs(')">
+                |x|
+              </button>
+
+              <!-- Memory and Special -->
+              <button class="calc-btn memory" onclick="memoryStore()">
+                MS
+              </button>
+              <button class="calc-btn memory" onclick="memoryRecall()">
+                MR
+              </button>
+              <button class="calc-btn memory" onclick="memoryClear()">
+                MC
+              </button>
+              <button class="calc-btn" onclick="addOperator('(')">(</button>
+              <button class="calc-btn" onclick="addOperator(')')">)</button>
+              <button class="calc-btn operator" onclick="addOperator('/')">
+                ÷
+              </button>
+
+              <!-- Numbers and Basic Operations -->
+              <button class="calc-btn" onclick="addNumber('7')">7</button>
+              <button class="calc-btn" onclick="addNumber('8')">8</button>
+              <button class="calc-btn" onclick="addNumber('9')">9</button>
+              <button class="calc-btn operator" onclick="addOperator('*')">
+                ×
+              </button>
+              <button
+                class="calc-btn function"
+                onclick="addFunction('factorial(')"
+              >
+                n!
+              </button>
+              <button class="calc-btn operator" onclick="backspace()">⌫</button>
+
+              <button class="calc-btn" onclick="addNumber('4')">4</button>
+              <button class="calc-btn" onclick="addNumber('5')">5</button>
+              <button class="calc-btn" onclick="addNumber('6')">6</button>
+              <button class="calc-btn operator" onclick="addOperator('-')">
+                −
+              </button>
+              <button class="calc-btn constant" onclick="addConstant(Math.PI)">
+                π
+              </button>
+              <button class="calc-btn constant" onclick="addConstant(Math.E)">
+                e
+              </button>
+
+              <button class="calc-btn" onclick="addNumber('1')">1</button>
+              <button class="calc-btn" onclick="addNumber('2')">2</button>
+              <button class="calc-btn" onclick="addNumber('3')">3</button>
+              <button class="calc-btn operator" onclick="addOperator('+')">
+                +
+              </button>
+              <button class="calc-btn equals tall" onclick="calculate()">
+                =
+              </button>
+              <button class="calc-btn operator" onclick="clearAll()">C</button>
+
+              <button class="calc-btn wide" onclick="addNumber('0')">0</button>
+              <button class="calc-btn" onclick="addNumber('.')">.</button>
+              <button class="calc-btn" onclick="toggleSign()">±</button>
+              <button class="calc-btn operator" onclick="addOperator('%')">
+                %
+              </button>
+            </div>
+
+            <!-- Graphing Calculator -->
+            <div class="calculator-grid graphing-grid" id="graphingGrid">
+              <div class="graph-container">
+                <div class="graph-controls">
+                  <input
+                    type="text"
+                    id="functionInput"
+                    placeholder="Enter function: f(x) = x^2"
+                  />
+                  <button onclick="plotFunction()">Plot</button>
+                  <button onclick="clearGraph()">Clear</button>
+                </div>
+                <canvas id="graphCanvas" width="600" height="400"></canvas>
+                <div class="graph-functions" id="graphFunctions"></div>
+              </div>
+            </div>
+
+            <!-- Statistics Calculator -->
+            <div class="calculator-grid statistics-grid" id="statisticsGrid">
+              <div class="stats-container">
+                <div class="data-input">
+                  <label>Data Input:</label>
+                  <textarea
+                    id="dataInput"
+                    placeholder="Enter data separated by commas or spaces"
+                  ></textarea>
+                  <button onclick="parseData()">Parse Data</button>
+                </div>
+                <div class="stats-functions">
+                  <button class="calc-btn stats" onclick="calculateMean()">
+                    Mean
+                  </button>
+                  <button class="calc-btn stats" onclick="calculateMedian()">
+                    Median
+                  </button>
+                  <button class="calc-btn stats" onclick="calculateMode()">
+                    Mode
+                  </button>
+                  <button class="calc-btn stats" onclick="calculateStdDev()">
+                    Std Dev
+                  </button>
+                  <button class="calc-btn stats" onclick="calculateVariance()">
+                    Variance
+                  </button>
+                  <button class="calc-btn stats" onclick="calculateRange()">
+                    Range
+                  </button>
+                </div>
+                <div class="stats-results" id="statsResults"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step-by-step Solution Panel -->
+          <div class="solution-panel" id="solutionPanel">
+            <div class="panel-header">
+              <h3>Step-by-step Solution</h3>
+              <button onclick="closeSolutionPanel()">&times;</button>
+            </div>
+            <div class="panel-content" id="solutionContent"></div>
+          </div>
+        </div>
+
+        <!-- History View -->
+        <div class="view" id="historyView">
+          <div class="history-container">
+            <div class="history-header">
+              <h2>Calculation History</h2>
+              <div class="history-controls">
+                <select id="historyFilter">
+                  <option value="">All Types</option>
+                  <option value="basic">Basic</option>
+                  <option value="scientific">Scientific</option>
+                  <option value="statistics">Statistics</option>
+                  <option value="graphing">Graphing</option>
+                </select>
+                <button onclick="exportHistory()">Export</button>
+                <button onclick="clearHistory()">Clear All</button>
+              </div>
+            </div>
+            <div class="history-list" id="historyList">
+              <!-- History items will be populated here -->
+            </div>
+            <div class="history-pagination" id="historyPagination"></div>
+          </div>
+        </div>
+
+        <!-- Notes View -->
+        <div class="view" id="notesView">
+          <div class="notes-container">
+            <div class="notes-sidebar">
+              <div class="notes-header">
+                <h3>Notes</h3>
+                <button class="btn btn-primary" onclick="createNote()">
+                  + New Note
+                </button>
+              </div>
+              <div class="notes-categories">
+                <button class="category-btn active" data-category="">
+                  All
+                </button>
+                <button class="category-btn" data-category="math">Math</button>
+                <button class="category-btn" data-category="physics">
+                  Physics
+                </button>
+                <button class="category-btn" data-category="chemistry">
+                  Chemistry
+                </button>
+                <button class="category-btn" data-category="general">
+                  General
+                </button>
+              </div>
+              <div class="notes-list" id="notesList">
+                <!-- Notes will be populated here -->
+              </div>
+            </div>
+            <div class="notes-editor">
+              <div class="editor-header">
+                <input type="text" id="noteTitle" placeholder="Note title..." />
+                <select id="noteCategory">
+                  <option value="general">General</option>
+                  <option value="math">Math</option>
+                  <option value="physics">Physics</option>
+                  <option value="chemistry">Chemistry</option>
+                </select>
+                <button onclick="saveNote()">Save</button>
+              </div>
+              <textarea
+                id="noteContent"
+                placeholder="Write your notes here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics View -->
+        <div class="view" id="statisticsView">
+          <div class="stats-dashboard">
+            <div class="stats-cards">
+              <div class="stat-card">
+                <div class="stat-icon">🧮</div>
+                <div class="stat-info">
+                  <div class="stat-number" id="totalCalculations">0</div>
+                  <div class="stat-label">Total Calculations</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-info">
+                  <div class="stat-number" id="totalNotes">0</div>
+                  <div class="stat-label">Notes Created</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                  <div class="stat-number" id="mostUsedType">Scientific</div>
+                  <div class="stat-label">Most Used Type</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-info">
+                  <div class="stat-number" id="streakDays">0</div>
+                  <div class="stat-label">Day Streak</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-charts">
+              <div class="chart-container">
+                <h3>Usage by Type</h3>
+                <canvas id="usageChart" width="400" height="200"></canvas>
+              </div>
+              <div class="chart-container">
+                <h3>Recent Activity</h3>
+                <div class="activity-list" id="activityList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script>
+      console.log("📜 Loading scripts...");
+
+      // Global error handler
+      window.addEventListener("error", function (e) {
+        console.error("Script error:", e.filename, e.lineno, e.message);
+      });
+
+      // Track script loading
+      let scriptsLoaded = 0;
+      const totalScripts = 6;
+
+      function scriptLoaded(scriptName) {
+        scriptsLoaded++;
+        console.log(
+          `✅ ${scriptName} loaded (${scriptsLoaded}/${totalScripts})`
+        );
+
+        if (scriptsLoaded === totalScripts) {
+          console.log("🎉 All scripts loaded!");
+          // Force initialization if not already done
+          setTimeout(() => {
+            if (!window.app || !window.app.isInitialized) {
+              console.log("🔄 Force initializing app...");
+              if (window.initializeApp) {
+                window.initializeApp();
+              }
+            }
+          }, 100);
+        }
+      }
+    </script>
+
+    <script
+      src="js/api.js"
+      onload="scriptLoaded('api.js')"
+      onerror="console.error('Failed to load api.js')"
+    ></script>
+    <script
+      src="js/auth.js"
+      onload="scriptLoaded('auth.js')"
+      onerror="console.error('Failed to load auth.js')"
+    ></script>
+    <script
+      src="js/calculator.js"
+      onload="scriptLoaded('calculator.js')"
+      onerror="console.error('Failed to load calculator.js')"
+    ></script>
+    <script
+      src="js/history.js"
+      onload="scriptLoaded('history.js')"
+      onerror="console.error('Failed to load history.js')"
+    ></script>
+    <script
+      src="js/notes.js"
+      onload="scriptLoaded('notes.js')"
+      onerror="console.error('Failed to load notes.js')"
+    ></script>
+    <script
+      src="js/statistics.js"
+      onload="scriptLoaded('statistics.js')"
+      onerror="console.error('Failed to load statistics.js')"
+    ></script>
+    <script
+      src="js/app.js"
+      onload="scriptLoaded('app.js')"
+      onerror="console.error('Failed to load app.js')"
+    ></script>
+  </body>
+</html>

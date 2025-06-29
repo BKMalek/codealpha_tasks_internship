@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | VisualVibe</title>
+    <link rel="stylesheet" href="profile-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">
+          <div class="vibe-wave wave-1"></div>
+          <div class="vibe-wave wave-2"></div>
+          <div class="vibe-wave wave-3"></div>
+        </div>
+        <h1>VisualVibe</h1>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </div>
+      <div class="user-menu">
+        <div class="user-avatar">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+            alt="User"
+          />
+        </div>
+        <div class="user-dropdown">
+          <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          <a href="auth.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+      <div class="header-background"></div>
+      <div class="profile-content">
+        <div class="profile-avatar">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
+            alt="Creative Soul"
+          />
+          <button class="edit-avatar">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        <div class="profile-info">
+          <h1>Creative Soul</h1>
+          <p class="profile-title">Visual Storyteller & Vibe Creator</p>
+          <p class="profile-bio">
+            Spreading positive energy through visual art. Capturing moments that
+            inspire and connect souls. Based in San Francisco, creating vibes
+            worldwide.
+          </p>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="number">234</span>
+              <span class="label">Visual Vibes</span>
+            </div>
+            <div class="stat">
+              <span class="number">3.2K</span>
+              <span class="label">Followers</span>
+            </div>
+            <div class="stat">
+              <span class="number">1.1K</span>
+              <span class="label">Following</span>
+            </div>
+            <div class="stat">
+              <span class="number">18.5K</span>
+              <span class="label">Vibe Reactions</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn btn-primary">Edit Profile</button>
+            <button class="btn btn-outline">Share Profile</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Navigation -->
+    <section class="profile-nav">
+      <div class="nav-container">
+        <button class="profile-nav-btn active" data-tab="vibes">
+          <i class="fas fa-images"></i>
+          My Vibes
+        </button>
+        <button class="profile-nav-btn" data-tab="collections">
+          <i class="fas fa-folder"></i>
+          Collections
+        </button>
+        <button class="profile-nav-btn" data-tab="liked">
+          <i class="fas fa-heart"></i>
+          Liked Vibes
+        </button>
+        <button class="profile-nav-btn" data-tab="about">
+          <i class="fas fa-info-circle"></i>
+          About
+        </button>
+      </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content-section">
+      <!-- Vibes Tab -->
+      <div class="profile-tab active" id="vibes-tab">
+        <div class="tab-header">
+          <h2>My Visual Vibes (234)</h2>
+          <div class="sort-options">
+            <select class="sort-select">
+              <option value="recent">Latest Vibes</option>
+              <option value="popular">Most Popular</option>
+              <option value="views">Most Viewed</option>
+              <option value="reactions">Most Reactions</option>
+            </select>
+          </div>
+        </div>
+        <div class="vibes-grid">
+          <!-- Vibes will be loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Collections Tab -->
+      <div class="profile-tab" id="collections-tab">
+        <div class="tab-header">
+          <h2>Vibe Collections (12)</h2>
+          <button class="btn btn-primary">Create Collection</button>
+        </div>
+        <div class="collections-grid">
+          <div class="collection-card">
+            <div class="collection-preview">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop"
+                alt="Nature Vibes"
+              />
+              <div class="collection-overlay">
+                <span class="vibe-count">28 vibes</span>
+              </div>
+            </div>
+            <div class="collection-info">
+              <h3>Nature Vibes</h3>
+              <p>Capturing the raw energy of natural landscapes</p>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-preview">
+              <img
+                src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=200&fit=crop"
+                alt="Urban Energy"
+              />
+              <div class="collection-overlay">
+                <span class="vibe-count">22 vibes</span>
+              </div>
+            </div>
+            <div class="collection-info">
+              <h3>Urban Energy</h3>
+              <p>The pulse and rhythm of city life</p>
+            </div>
+          </div>
+          <div class="collection-card">
+            <div class="collection-preview">
+              <img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=200&fit=crop"
+                alt="Soul Portraits"
+              />
+              <div class="collection-overlay">
+                <span class="vibe-count">15 vibes</span>
+              </div>
+            </div>
+            <div class="collection-info">
+              <h3>Soul Portraits</h3>
+              <p>Capturing the essence and energy of people</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Liked Tab -->
+      <div class="profile-tab" id="liked-tab">
+        <div class="tab-header">
+          <h2>Liked Vibes (156)</h2>
+        </div>
+        <div class="liked-grid">
+          <!-- Liked vibes will be loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- About Tab -->
+      <div class="profile-tab" id="about-tab">
+        <div class="about-content">
+          <div class="about-section">
+            <h3>About My Vibes</h3>
+            <p>
+              I'm a passionate visual storyteller who believes in the power of
+              images to connect souls and spread positive energy. My work
+              focuses on capturing authentic moments that resonate with the
+              human experience.
+            </p>
+            <p>
+              Through VisualVibe, I've found a community that truly understands
+              the language of visual creativity. Every image I share is a piece
+              of my soul, meant to inspire and uplift others on their creative
+              journey.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h3>Creative Tools</h3>
+            <div class="tools-list">
+              <div class="tool-item">
+                <i class="fas fa-camera"></i>
+                <span>Canon EOS R6 Mark II</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-eye"></i>
+                <span>Canon RF 24-70mm f/2.8L</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-eye"></i>
+                <span>Canon RF 85mm f/1.2L</span>
+              </div>
+              <div class="tool-item">
+                <i class="fas fa-laptop"></i>
+                <span>Adobe Creative Suite</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h3>Connect With Me</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>creativesoul@visualvibe.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>www.creativesoulvibes.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h3>Follow My Vibes</h3>
+            <div class="social-links">
+              <a href="#" class="social-link instagram">
+                <i class="fab fa-instagram"></i>
+                @creativesoulvibes
+              </a>
+              <a href="#" class="social-link twitter">
+                <i class="fab fa-twitter"></i>
+                @creativesoul
+              </a>
+              <a href="#" class="social-link behance">
+                <i class="fab fa-behance"></i>
+                Creative Soul
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon">
+            <div class="vibe-wave wave-1"></div>
+            <div class="vibe-wave wave-2"></div>
+            <div class="vibe-wave wave-3"></div>
+          </div>
+          <h2>VisualVibe</h2>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="about.html">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Features</h3>
+            <a href="upload.html">Upload</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#">Collections</a>
+            <a href="#">Trending</a>
+          </div>
+          <div class="footer-column">
+            <h3>Community</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Blog</a>
+            <a href="#">Tutorials</a>
+            <a href="#">Creator Program</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Guidelines</a>
+            <a href="#">Licenses</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 VisualVibe. All rights reserved. Feel the creative energy.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="profile-script.js"></script>
+  </body>
+</html>

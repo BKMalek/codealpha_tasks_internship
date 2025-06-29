@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | VisualVibe</title>
+    <link rel="stylesheet" href="gallery-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">
+          <div class="vibe-wave wave-1"></div>
+          <div class="vibe-wave wave-2"></div>
+          <div class="vibe-wave wave-3"></div>
+        </div>
+        <h1>VisualVibe</h1>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="auth-buttons">
+        <a href="auth.html" class="btn btn-secondary">Sign In</a>
+        <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+      </div>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+      <div class="hero-content">
+        <h1>Discover <span class="gradient-text">Visual Vibes</span></h1>
+        <p>
+          Explore millions of inspiring images from our creative community
+          worldwide
+        </p>
+      </div>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            placeholder="Search for vibes, creators, or tags..."
+            class="search-input"
+          />
+          <button class="search-btn">
+            <i class="fas fa-magic"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+      <div class="filters-container">
+        <div class="filter-group">
+          <label>Categories</label>
+          <div class="category-filters">
+            <button class="filter-btn active" data-category="all">
+              All Vibes
+            </button>
+            <button class="filter-btn" data-category="nature">Nature</button>
+            <button class="filter-btn" data-category="urban">Urban</button>
+            <button class="filter-btn" data-category="people">People</button>
+            <button class="filter-btn" data-category="abstract">
+              Abstract
+            </button>
+            <button class="filter-btn" data-category="technology">Tech</button>
+            <button class="filter-btn" data-category="food">Food</button>
+            <button class="filter-btn" data-category="travel">Travel</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Sort By</label>
+          <select class="sort-select">
+            <option value="trending">Trending Vibes</option>
+            <option value="recent">Latest Uploads</option>
+            <option value="popular">Most Popular</option>
+            <option value="downloads">Most Shared</option>
+          </select>
+        </div>
+
+        <div class="view-options">
+          <button class="view-btn active" data-view="grid">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="view-btn" data-view="masonry">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button class="view-btn" data-view="list">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <div class="gallery-container">
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Images will be loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button class="load-more-btn">
+          <span class="btn-text">Load More Vibes</span>
+          <div class="btn-loader">
+            <div class="loader-circle"></div>
+          </div>
+          <i class="fas fa-sparkles"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="image-modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-image-container">
+          <img src="/placeholder.svg" alt="" class="modal-image" />
+          <div class="image-navigation">
+            <button class="nav-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-sidebar">
+          <div class="image-info">
+            <h3 class="image-title">Beautiful Visual Vibe</h3>
+            <div class="image-author">
+              <div class="author-avatar"></div>
+              <div class="author-details">
+                <h4>Creative Artist</h4>
+                <p>Visual Storyteller</p>
+              </div>
+              <button class="follow-btn">Follow</button>
+            </div>
+          </div>
+
+          <div class="image-stats">
+            <div class="stat-item">
+              <i class="fas fa-eye"></i>
+              <span>2,345 views</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-download"></i>
+              <span>156 shares</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-heart"></i>
+              <span>289 vibes</span>
+            </div>
+          </div>
+
+          <div class="image-actions">
+            <button class="action-btn vibe-btn">
+              <i class="fas fa-heart"></i>
+              Vibe
+            </button>
+            <button class="action-btn share-btn">
+              <i class="fas fa-share"></i>
+              Share
+            </button>
+            <button class="action-btn download-btn">
+              <i class="fas fa-download"></i>
+              Download
+            </button>
+          </div>
+
+          <div class="image-tags">
+            <h4>Tags</h4>
+            <div class="tags-container">
+              <span class="tag">creative</span>
+              <span class="tag">inspiring</span>
+              <span class="tag">visual</span>
+              <span class="tag">vibe</span>
+            </div>
+          </div>
+
+          <div class="related-images">
+            <h4>More from this creator</h4>
+            <div class="related-grid">
+              <!-- Related images will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-icon">
+            <div class="vibe-wave wave-1"></div>
+            <div class="vibe-wave wave-2"></div>
+            <div class="vibe-wave wave-3"></div>
+          </div>
+          <h2>VisualVibe</h2>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Company</h3>
+            <a href="about.html">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Press</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h3>Features</h3>
+            <a href="upload.html">Upload</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#">Collections</a>
+            <a href="#">Trending</a>
+          </div>
+          <div class="footer-column">
+            <h3>Community</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Blog</a>
+            <a href="#">Tutorials</a>
+            <a href="#">Creator Program</a>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Guidelines</a>
+            <a href="#">Licenses</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 VisualVibe. All rights reserved. Feel the creative energy.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="gallery-script.js"></script>
+  </body>
+</html>

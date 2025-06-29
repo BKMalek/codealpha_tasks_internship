@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisualVibe - Share Your Creative Vision</title>
+    <meta
+      name="description"
+      content="Join VisualVibe, the ultimate platform for visual creators to share, discover, and connect through stunning imagery and creative content."
+    />
+    <link rel="stylesheet" href="stylemain.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">
+        <!--Conteneur pour le logo du site.-->
+        <div class="logo-icon">
+          <div class="vibe-wave wave-1"></div>
+          <div class="vibe-wave wave-2"></div>
+          <div class="vibe-wave wave-3"></div>
+        </div>
+        <h1>VisualVibe</h1>
+        <!--Nom du site affiché comme titre principal.-->
+      </div>
+
+      <div class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <!--Ce sont les liens de navigation pour les différentes pages du site. Le lien "Home" est actif-->
+
+      <div class="auth-buttons">
+        <a href="auth.html" class="btn btn-secondary">Sign In</a>
+        <a href="auth.html" class="btn btn-primary">Join Vibe</a>
+      </div>
+
+      <!-- User Menu (hidden by default, shown when logged in) -->
+      <div class="user-menu" style="display: none">
+        <div class="user-avatar">
+          <img src="/placeholder.svg" alt="User Avatar" />
+        </div>
+        <!--Affiche une photo de profil.-->
+
+        <div class="user-dropdown">
+          <div class="user-info">
+            <span class="user-name"></span>
+            <span class="user-email"></span>
+          </div>
+          <!--Affiche dynamiquement le nom et l’email de l’utilisateur connecté.-->
+
+          <div class="dropdown-menu">
+            <a href="dashboard.html" class="dropdown-item">
+              <i class="fas fa-tachometer-alt"></i>
+              Dashboard
+            </a>
+            <a href="profile.html" class="dropdown-item">
+              <i class="fas fa-user"></i>
+              Profile
+            </a>
+            <a href="upload.html" class="dropdown-item">
+              <i class="fas fa-upload"></i>
+              Upload
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item logout-btn">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        <div class="hero-shape shape-3"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Share Your <span class="gradient-text">Creative Vision</span>
+          <br />with the World
+        </h1>
+        <p class="hero-subtitle">
+          Join thousands of creators on VisualVibe - the ultimate platform to
+          showcase your visual art, discover amazing content, and connect with
+          fellow artists worldwide.
+        </p>
+
+        <div class="hero-actions">
+          <a href="auth.html" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i>
+            Start Creating
+          </a>
+          <a href="gallery.html" class="btn btn-outline btn-large">
+            <i class="fas fa-images"></i>
+            Explore Gallery
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="5000">0</div>
+            <div class="stat-label">Creators</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="250000">0</div>
+            <div class="stat-label">Images Shared</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="90">0</div>
+            <div class="stat-label">Countries</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-cards">
+          <div class="floating-card card-1">
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop"
+              alt="Nature"
+            />
+            <div class="card-overlay">
+              <div class="card-stats">
+                <span><i class="fas fa-heart"></i> 234</span>
+                <span><i class="fas fa-eye"></i> 1.2K</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card card-2">
+            <img
+              src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=200&fit=crop"
+              alt="Urban"
+            />
+            <div class="card-overlay">
+              <div class="card-stats">
+                <span><i class="fas fa-heart"></i> 189</span>
+                <span><i class="fas fa-eye"></i> 892</span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card card-3">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=200&fit=crop"
+              alt="Portrait"
+            />
+            <div class="card-overlay">
+              <div class="card-stats">
+                <span><i class="fas fa-heart"></i> 456</span>
+                <span><i class="fas fa-eye"></i> 2.3K</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose <span class="gradient-text">VisualVibe</span>?</h2>
+          <p>
+            Discover the features that make VisualVibe the perfect platform for
+            visual creators
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-upload"></i>
+            </div>
+            <h3>Easy Upload</h3>
+            <p>
+              Drag, drop, and share your visual masterpieces in seconds. Support
+              for all major image formats with high-quality preservation.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Creative Community</h3>
+            <p>
+              Connect with like-minded artists, get feedback on your work, and
+              collaborate on exciting creative projects.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Smart Discovery</h3>
+            <p>
+              Find inspiration with our intelligent search and recommendation
+              system. Discover content tailored to your interests.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Analytics Dashboard</h3>
+            <p>
+              Track your content performance with detailed analytics. See views,
+              likes, downloads, and engagement metrics.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Creative Tools</h3>
+            <p>
+              Access built-in editing tools and filters to enhance your images
+              before sharing with the community.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Secure & Private</h3>
+            <p>
+              Your content is protected with enterprise-grade security. Control
+              who sees your work with flexible privacy settings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section class="gallery-preview">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured <span class="gradient-text">Creations</span></h2>
+          <p>
+            Explore some of the amazing content shared by our creative community
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+              alt="Sunset Dreams"
+            />
+            <div class="gallery-overlay">
+              <h4>Sunset Dreams</h4>
+              <p>by Luna Martinez</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 234</span>
+                <span><i class="fas fa-eye"></i> 1.5K</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=400&fit=crop"
+              alt="Urban Vibes"
+            />
+            <div class="gallery-overlay">
+              <h4>Urban Vibes</h4>
+              <p>by River Chen</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 189</span>
+                <span><i class="fas fa-eye"></i> 892</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop"
+              alt="Portrait Magic"
+            />
+            <div class="gallery-overlay">
+              <h4>Portrait Magic</h4>
+              <p>by Sage Williams</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 456</span>
+                <span><i class="fas fa-eye"></i> 2.3K</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+              alt="Forest Path"
+            />
+            <div class="gallery-overlay">
+              <h4>Forest Path</h4>
+              <p>by Echo Thompson</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 312</span>
+                <span><i class="fas fa-eye"></i> 1.8K</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop"
+              alt="City Lights"
+            />
+            <div class="gallery-overlay">
+              <h4>City Lights</h4>
+              <p>by Nova Kim</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 278</span>
+                <span><i class="fas fa-eye"></i> 1.4K</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop"
+              alt="Ocean Waves"
+            />
+            <div class="gallery-overlay">
+              <h4>Ocean Waves</h4>
+              <p>by Storm Davis</p>
+              <div class="gallery-stats">
+                <span><i class="fas fa-heart"></i> 523</span>
+                <span><i class="fas fa-eye"></i> 3.1K</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-actions">
+          <a href="gallery.html" class="btn btn-primary">
+            <i class="fas fa-images"></i>
+            View Full Gallery
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="50000">0</div>
+              <div class="stat-label">Active Creators</div>
+              <div class="stat-description">
+                Artists sharing their vision daily
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-images"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="2500000">0</div>
+              <div class="stat-label">Images Shared</div>
+              <div class="stat-description">High-quality visuals uploaded</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="15000000">0</div>
+              <div class="stat-label">Likes Given</div>
+              <div class="stat-description">
+                Appreciation shared in community
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-number" data-count="5000000">0</div>
+              <div class="stat-label">Downloads</div>
+              <div class="stat-description">Images downloaded by users</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Our <span class="gradient-text">Creators</span> Say</h2>
+          <p>
+            Hear from the amazing artists who make VisualVibe their creative
+            home
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p>
+                "VisualVibe has transformed how I share my photography. The
+                community is incredibly supportive, and the platform makes it so
+                easy to reach new audiences."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face"
+                alt="Sarah Johnson"
+              />
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <p>Landscape Photographer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p>
+                "The analytics dashboard helps me understand what resonates with
+                my audience. I've grown my following by 300% since joining
+                VisualVibe!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
+                alt="Marcus Chen"
+              />
+              <div class="author-info">
+                <h4>Marcus Chen</h4>
+                <p>Digital Artist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p>
+                "I love how easy it is to discover new artists and styles.
+                VisualVibe's recommendation system always shows me exactly what
+                I'm looking for."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face"
+                alt="Emma Rodriguez"
+              />
+              <div class="author-info">
+                <h4>Emma Rodriguez</h4>
+                <p>Art Collector</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>
+            Ready to Share Your
+            <span class="gradient-text">Creative Vision</span>?
+          </h2>
+          <p>
+            Join thousands of creators who are already sharing their amazing
+            work on VisualVibe. Start your creative journey today!
+          </p>
+
+          <div class="cta-actions">
+            <a href="auth.html" class="btn btn-primary btn-large">
+              <i class="fas fa-rocket"></i>
+              Get Started Free
+            </a>
+            <a href="gallery.html" class="btn btn-outline btn-large">
+              <i class="fas fa-play"></i>
+              Watch Demo
+            </a>
+          </div>
+
+          <div class="cta-features">
+            <div class="cta-feature">
+              <i class="fas fa-check"></i>
+              <span>Free to join</span>
+            </div>
+            <div class="cta-feature">
+              <i class="fas fa-check"></i>
+              <span>No watermarks</span>
+            </div>
+            <div class="cta-feature">
+              <i class="fas fa-check"></i>
+              <span>Unlimited uploads</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <h3>
+              Stay Updated with <span class="gradient-text">VisualVibe</span>
+            </h3>
+            <p>
+              Get the latest features, creator spotlights, and inspiration
+              delivered to your inbox.
+            </p>
+          </div>
+          <form class="newsletter-form">
+            <div class="newsletter-input">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+              />
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                Subscribe
+              </button>
+            </div>
+            <p class="newsletter-privacy">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="logo-icon">
+                <div class="vibe-wave wave-1"></div>
+                <div class="vibe-wave wave-2"></div>
+                <div class="vibe-wave wave-3"></div>
+              </div>
+              <h2>VisualVibe</h2>
+            </div>
+            <p>
+              The ultimate platform for visual creators to share, discover, and
+              connect through stunning imagery and creative content.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" class="social-link">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Platform</h3>
+              <a href="gallery.html">Gallery</a>
+              <a href="upload.html">Upload</a>
+              <a href="dashboard.html">Dashboard</a>
+              <a href="auth.html">Sign Up</a>
+            </div>
+
+            <div class="footer-column">
+              <h3>Community</h3>
+              <a href="#">Featured Artists</a>
+              <a href="#">Challenges</a>
+              <a href="#">Blog</a>
+              <a href="#">Forums</a>
+            </div>
+
+            <div class="footer-column">
+              <h3>Resources</h3>
+              <a href="#">Help Center</a>
+              <a href="#">API Docs</a>
+              <a href="#">Guidelines</a>
+              <a href="#">Tutorials</a>
+            </div>
+
+            <div class="footer-column">
+              <h3>Company</h3>
+              <a href="about.html">About Us</a>
+              <a href="contact.html">Contact</a>
+              <a href="#">Careers</a>
+              <a href="#">Press</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 VisualVibe. All rights reserved.</p>
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

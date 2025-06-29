@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProCalc - Professional Calculator</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <section class="welcome-section">
+      <div class="welcome-container">
+        <div class="logo">
+          <span class="logo-icon">🧮</span>
+          <h1>ProCalc</h1>
+        </div>
+
+        <div class="welcome-hero">
+          <h2>The Ultimate Professional Calculator</h2>
+          <p class="lead">
+            Advanced calculations, graphing, statistics, and note-taking in one
+            powerful tool
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <i class="feature-icon fas fa-calculator"></i>
+              <h3>Scientific Mode</h3>
+              <p>Trigonometry, logarithms, constants, and advanced functions</p>
+            </div>
+            <div class="feature-card">
+              <i class="feature-icon fas fa-chart-line"></i>
+              <h3>Graphing</h3>
+              <p>Visualize functions with interactive 2D graphs</p>
+            </div>
+            <div class="feature-card">
+              <i class="feature-icon fas fa-chart-bar"></i>
+              <h3>Statistics</h3>
+              <p>Analyze datasets with advanced statistical tools</p>
+            </div>
+            <div class="feature-card">
+              <i class="feature-icon fas fa-cloud"></i>
+              <h3>Cloud Sync</h3>
+              <p>Access your calculations from any device</p>
+            </div>
+          </div>
+
+          <div class="welcome-cta">
+            <button id="signInBtn" class="btn btn-outline">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+            <button id="signUpBtn" class="btn btn-primary">
+              <i class="fas fa-user-plus"></i> Create Account
+            </button>
+            <button id="guestBtn" class="btn btn-secondary">
+              <i class="fas fa-user-clock"></i> Continue as Guest
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auth Modal (Same as index.html) -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content auth-modal">
+        <!-- Content will be loaded dynamically -->
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/welcome.js"></script>
+  </body>
+</html>
